@@ -9,7 +9,7 @@ scripts:
   goldentest: flutter test --update-goldens --tags=golden
   goldentest_compare: flutter test --tags=golden
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.18.5 <3.0.0"
 
 dependencies:
   flutter:
@@ -21,8 +21,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^1.0.0
-  golden_toolkit: ^0.11.0
+  flutter_lints: ^2.0.0
+  golden_toolkit: ^0.13.0
 
 flutter:
   uses-material-design: true
