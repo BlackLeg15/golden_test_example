@@ -6,7 +6,7 @@ import 'package:goldentest/home_page.dart';
 void main() {
   testGoldens('Warning Color', (tester) async {
     await loadAppFonts();
-    final deviceDesktop = const Device(size: Size(1920, 1080), name: 'Full HD Desktop');
+    const deviceDesktop = Device(size: Size(1280, 720), name: 'HD Desktop');
     final builder = DeviceBuilder()
       ..overrideDevicesForAllScenarios(devices: [
         Device.phone,
@@ -24,8 +24,8 @@ void main() {
         widget: const HomePage(),
         onCreate: (scenarioWidgetKey) async {
           final txt = find.descendant(of: find.byKey(scenarioWidgetKey), matching: find.byKey(const Key('txtPassword')));
-          expect(txt, findsWidgets);
-          await tester.enterText(txt.first, '123');
+          expect(txt, findsOneWidget);
+          await tester.enterText(txt, '123');
         },
       )
       ..addScenario(
@@ -33,7 +33,7 @@ void main() {
         widget: const HomePage(),
         onCreate: (scenarioWidgetKey) async {
           final txt = find.descendant(of: find.byKey(scenarioWidgetKey), matching: find.byKey(const Key('txtPassword')));
-          expect(txt, findsWidgets);
+          expect(txt, findsOneWidget);
           final icon = find.descendant(of: txt, matching: find.byType(IconButton));
 
           expect(icon, findsOneWidget);
